@@ -1,6 +1,6 @@
 from periodictable import elements
 import tkinter as tk
-
+import random
 correct_ans=0
 ans=[]
 question=[]
@@ -18,15 +18,26 @@ n=len(question) #n=length of questions or answers
 for i in range(n):
      print(i+1,question[i],ans[i])
 
+
 # print(file.readline())
 
+random_question=0
 
-
-# Function to handle button click
+def update_label():
+     label.config(text=question[random_question])
+# Function for  button display
 def my_function(element,mass,name,number):
-    new_window = tk.Toplevel(main_window)
-    tk.Label(new_window, text=f"Element: {element} \n ATOMIC MASS : {mass} \n Element Name: {name} \n ATOMIC NUMBER :{number}").pack()
-
+     global random_question
+     new_window = tk.Toplevel(main_window)
+     tk.Label(new_window, text=f"Element: {element} \n ATOMIC MASS : {mass} \n Element Name: {name} \n ATOMIC NUMBER :{number}").pack()
+     
+     if number==int(ans[random_question]):
+          print("Correct Answer")
+     else:
+          print("INCORRECT ANSWER")
+     random_question=random.randint(0,n-1)
+     update_label()
+    
 main_window = tk.Tk()
 main_window.title("Periodic Table")
 
@@ -77,7 +88,7 @@ for i in elements:
     cmd_txt.configure(font=("Times New Roman",11))
     cmd_txt.insert("insert",i.symbol,"",i.number,"subscript")
     cmd_txt.configure(state="disabled")
-    cmd_txt.bind("<Button-1>",lambda e:my_function(i.symbol,i.mass,i.name,i.number))
+    cmd_txt.bind("<Button-1>",lambda me,name=i.name,number=i.number,elem=i.symbol,ma=i.mass:my_function(elem,ma,name,number))
     buttons.append(cmd_txt)
 
 #     buttons.append(tk.Button(main_window, text=f"{i.symbol}",command=lambda el=i.symbol,name=i.name,number=i.number,ma=i.mass: my_function(el,ma,name,number),width=3, height=1,
@@ -138,10 +149,10 @@ for row_no in range(len(atoms)):
      buttons[atoms[row_no]-1].grid(row=row_no+1, column=17  )
 atoms=[2,10,18,36,54,86,118]
 for row_no in range(len(atoms)):
-     buttons[atoms[row_no]-1].grid(row=row_no, column=18   )   
+     buttons[atoms[row_no]-1].grid(row=row_no, column=18   )  
 
-label=tk.Label(main_window,text="WHAT ELEMENT DIAMOND MADE OF : ",bg="black",fg="white",font=("Arial", 12) )
+
+label=tk.Label(main_window,text=question[random_question],bg="black",fg="white",font=("Arial", 12) )
 label.grid(row=200,column=1,columnspan=18,padx=10,pady=10)
-
 
 main_window.mainloop()
