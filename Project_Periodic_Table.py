@@ -152,7 +152,7 @@ for row_no in range(len(atoms)):
      buttons[atoms[row_no]-1].grid(row=row_no, column=18   )  
 
 
-label=tk.Label(main_window,text=question[random_question],bg="black",fg="white",font=("Arial", 12) )
+label=tk.Label(main_window,text=question[random_question],bg="black",fg="white",font=("Times roman", 12) )
 label.grid(row=200,column=1,columnspan=18,padx=10,pady=10)
 
 main_window.mainloop()
