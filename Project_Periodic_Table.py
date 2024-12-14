@@ -1,6 +1,27 @@
 from periodictable import elements
 import tkinter as tk
 
+correct_ans=0
+ans=[]
+question=[]
+lin_no=0
+file=open("Quiz.txt","r")
+for line in file:
+     line=line.strip()
+     lin_no=lin_no+1
+     if lin_no%2==0:
+          ans.append(line)
+     else:
+          question.append(line)
+print(question ,ans)
+n=len(question) #n=length of questions or answers
+for i in range(n):
+     print(i+1,question[i],ans[i])
+
+# print(file.readline())
+
+
+
 # Function to handle button click
 def my_function(element,mass,name,number):
     new_window = tk.Toplevel(main_window)
@@ -51,26 +72,19 @@ for i in elements:
     button_color = get_color(i.number)
     # Use lambda to capture the element's symbol
    
-    cmd_txt=tk.Text(main_window)
-    cmd_txt.tag_configure("subscript",offset=-4)
+    cmd_txt=tk.Text(main_window,width=6,height=2,bg=button_color,relief="solid",cursor="arrow")
+    cmd_txt.tag_configure("subscript",offset=-4,font=("Times roman",8))
+    cmd_txt.configure(font=("Times New Roman",11))
     cmd_txt.insert("insert",i.symbol,"",i.number,"subscript")
     cmd_txt.configure(state="disabled")
+    cmd_txt.bind("<Button-1>",lambda e:my_function(i.symbol,i.mass,i.name,i.number))
+    buttons.append(cmd_txt)
 
-    buttons.append(tk.Button(main_window, text=f"{i.symbol}",command=lambda el=i.symbol,name=i.name,number=i.number,ma=i.mass: my_function(el,ma,name,number),width=3, height=1,
-                     bg=button_color, font=("Courier",12), relief="flat"))
+#     buttons.append(tk.Button(main_window, text=f"{i.symbol}",command=lambda el=i.symbol,name=i.name,number=i.number,ma=i.mass: my_function(el,ma,name,number),width=3, height=1,
+#                      bg=button_color, font=("Courier",12), relief="flat"))
 
-# Arrange buttons in a grid (example layout for All elements)\
-#i=1
-# for i in [1,3,11,19,37,55,87]:
-#      buttons[i-1].grid(row=i,column=1  )
-# atoms = [1,3,11,19,37,55,87]
-# for row_no in range(len(atoms)):
-#      buttons[atoms[row_no-1]].grid(row=row_no, column=2, padx=5,pady=5)
-
-##
 atoms = [1,3,11,19,37,55,87]
-# buttons=[tk.Button(main_window,text=elements,width=10,height=2,bg="lightblue",fg="black",font=("Arial",12,"bold"),relief="raised", command=lambda el=i.symbol,name=i.name,number=i.number,ma=i.mass: my_function(el,ma,name,number))
-#          for i in range(118)]
+
 
 for row_no in range(len(atoms)):
      buttons[atoms[row_no]-1].grid(row=row_no, column=1)
@@ -124,48 +138,10 @@ for row_no in range(len(atoms)):
      buttons[atoms[row_no]-1].grid(row=row_no+1, column=17  )
 atoms=[2,10,18,36,54,86,118]
 for row_no in range(len(atoms)):
-     buttons[atoms[row_no]-1].grid(row=row_no+1, column=18   )
-##
+     buttons[atoms[row_no]-1].grid(row=row_no, column=18   )   
 
-# for i in range(6):
-#     buttons[i].grid(row=i, column=1, padx=10, pady=10)
-# for i in range(6, 12):
-#     buttons[i].grid(row=i-6, column=2, padx=10, pady=10)
-# for i in range(12,18):
-#      buttons[i].grid(row=i-12, column=3, padx=10, pady=10)
-# for i in range(18,24):
-#      buttons[i].grid(row=i-18, column=4, padx=10, pady=10)
-# for i in range(24,30):
-#      buttons[i].grid(row=i-24, column=5, padx=10, pady=10)
-# for i in range(30,36):
-#      buttons[i].grid(row=i-30, column=6, padx=10, pady=10)
-# for i in range(36,42):
-#      buttons[i].grid(row=i-36, column=7, padx=10, pady=10)
-# for i in range(42,48):
-#      buttons[i].grid(row=i-42, column=8, padx=10, pady=10)
-# for i in range(48,54):
-#      buttons[i].grid(row=i-48, column=9, padx=10, pady=10)
-# for i in range(54,60):
-#      buttons[i].grid(row=i-54, column=10, padx=10, pady=10)
-# for i in range(60,66):
-#      buttons[i].grid(row=i-60, column=11, padx=10, pady=10)
-# for i in range(66,72):
-#      buttons[i].grid(row=i-66, column=12, padx=10, pady=10)
-# for i in range(72,80):
-#      buttons[i].grid(row=i-72, column=13, padx=10, pady=10)
-# for i in range(78,84):
-#      buttons[i].grid(row=i-78, column=14, padx=10, pady=10)
-# for i in range(84,90):
-#      buttons[i].grid(row=i-84, column=15, padx=10, pady=10)
-# for i in range(90,96):
-#      buttons[i].grid(row=i-90, column=16, padx=10, pady=10)
-# for i in range(96,102):
-#      buttons[i].grid(row=i-96, column=17, padx=10, pady=10)
-# for i in range(102,108):
-#      buttons[i].grid(row=i-102, column=18, padx=10, pady=10)
-# for i in range(108,114):
-#      buttons[i].grid(row=i-108, column=20, padx=10, pady=10)
-# for i in range(114,120-2):
-#     buttons[i].grid(row=i-114, column=21, padx=10, pady=10)
-     
+label=tk.Label(main_window,text="WHAT ELEMENT DIAMOND MADE OF : ",bg="black",fg="white",font=("Arial", 12) )
+label.grid(row=200,column=1,columnspan=18,padx=10,pady=10)
+
+
 main_window.mainloop()
