@@ -1,6 +1,194 @@
-What is diamond made of ?
-6
-which is the lightest element ?
-1
-which element produces gold when it is neutron ?
-80
+What element forms the structure of diamonds?  
+6  
+Which element is the lightest in the periodic table?  
+1  
+Which element transforms into gold when it gains a neutron?  
+80  
+What is the most abundant element in the universe?  
+1  
+Which noble gas is commonly used in neon lighting?  
+10  
+Which element is a key component in batteries?  
+3  
+Which element is essential for human respiration?  
+8  
+Which element is used to disinfect swimming pools?  
+17  
+Which element is primarily found in pencil lead?  
+6  
+Which element is used in traditional thermometers?  
+80  
+What is the second most abundant element in the Earth's crust?  
+14  
+Which gas is used in balloons to make them float?  
+2  
+Which element forms the hardest natural substance on Earth?  
+6  
+Which element has the highest melting point of all?  
+74  
+Which element is used as fuel in nuclear reactors?  
+92  
+Which element is a component of matchstick heads?  
+16  
+Which element is commonly known as quicksilver?  
+80  
+What is the lightest noble gas in the periodic table?  
+2  
+Which element is vital in the semiconductor industry?  
+14  
+What is the most reactive metal in the periodic table?  
+55  
+Which element is known as the “King of Poisons”?  
+33  
+Which element is most commonly used to create jewelry?  
+79  
+Which element, besides mercury, is liquid at room temperature?  
+35  
+Which element produces bright red colors in fireworks?  
+38  
+Which element is essential for the creation of strong magnets?  
+26  
+Which element is a primary ingredient in toothpaste?  
+9  
+Which element is used to protect steel from rusting?  
+30  
+Which element is used in fluorescent light bulbs?  
+54  
+Which element is a major component of human bones and teeth?  
+20  
+Which element is known as brimstone in ancient texts?  
+16  
+Which element is used in car batteries and bullets?  
+82  
+Which element is an essential part of stainless steel?  
+24  
+Which element has the highest atomic number in the periodic table?  
+118  
+Which element is the densest naturally occurring one?  
+76  
+Which element is commonly used for electrical wiring?  
+29  
+Which element is responsible for the formation of rust?  
+26  
+Which radioactive element is used in smoke detectors?  
+95  
+Which element is the best conductor of electricity?  
+47  
+Which element is used to shield against X-rays?  
+82  
+Which element is a key ingredient in fertilizers?  
+7  
+Which element is found in all organic compounds?  
+6  
+Which element is used in sunscreen to block ultraviolet rays?  
+30  
+Which element is used to coat mirrors?  
+13  
+Which element creates green hues in fireworks?  
+20  
+Which element is critical for electric vehicle batteries?  
+3  
+Which element is used to purify drinking water?  
+17  
+What is the least dense element in the periodic table?  
+1  
+Which element gives emeralds their green color?  
+24  
+Which element is essential for blood clotting?  
+20  
+Which element, found in bananas, is crucial for nerve function?  
+19  
+Which element is used to create thermometers for low temperatures?  
+3  
+Which element produces UV light in fluorescent tubes?  
+54  
+Which element is necessary for hemoglobin in the blood?  
+26  
+What is the main component of chalk and limestone?  
+20  
+Which element is widely used in jewelry and coins?  
+79  
+What is the most abundant gas in Earth’s atmosphere?  
+7  
+Which element is used in fire extinguishers and fizzy drinks?  
+6  
+Which element is essential for thyroid health?  
+53  
+Which element is a key component of fireworks and matches?  
+16  
+Which radioactive gas can accumulate in basements?  
+86  
+Which element is critical for manufacturing computer chips?  
+14  
+Which element glows when exposed to ultraviolet light?  
+15  
+Which element is used as fissile material in nuclear weapons?  
+94  
+Which element colors glass purple?  
+25  
+Which element is used in jet engines for its strength and resistance?  
+22  
+Which element is used to treat bipolar disorder?  
+3  
+Which element is vital in the production of glass and ceramics?  
+14  
+Which element is necessary for photosynthesis in plants?  
+12  
+Which noble gas is used in MRI machines?  
+3  
+Which element has the highest boiling point?  
+74  
+What is the most malleable metal in the periodic table?  
+79  
+Which element is used to make thermometers for high temperatures?  
+80  
+Which element makes fireworks sparkle?  
+13  
+Which element is synthesized to create artificial diamonds?  
+6  
+Which element is used as a contrast agent in X-rays?  
+53  
+What element is a key component of table salt?  
+11  
+Which element makes firecrackers emit bright white light?  
+24  
+Which element prevents airplane wings from corroding?  
+13  
+Which element is famously referred to as the “philosopher’s stone”?  
+79  
+Which element is necessary for muscle contractions?  
+20  
+Which noble gas is commonly used in welding?  
+10  
+Which element sterilizes surgical instruments?  
+9  
+Which element gives rubies their red color?  
+23  
+Which element is used to make explosives?  
+7  
+Which element is essential for strong bones and teeth?  
+20  
+Which radioactive element is used in cancer treatment?  
+95  
+Which element is vital for solar panels and semiconductors?  
+14  
+Which element is used to solder electronic components?  
+50  
+Which element is used in catalytic converters in cars?  
+78  
+Which element is used to create artificial rain?  
+13  
+Which element regulates glucose metabolism in the body?  
+24  
+Which noble gas is used in plasma televisions?  
+18  
+Which element is found in non-stick cookware?  
+9  
+Which element is used in the filaments of light bulbs?  
+74  
+Which element strengthens bones in osteoporosis treatments?  
+20  
+Which element helps in producing hydrogen peroxide?  
+8  
+Which element powers rocket fuel in space missions?  
+1  

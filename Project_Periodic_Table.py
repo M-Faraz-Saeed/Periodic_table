@@ -5,7 +5,7 @@ correct_ans=0
 ans=[]
 question=[]
 lin_no=0
-file=open("Quiz.txt","r")
+file=open("Quiz.txt","r",encoding="utf-8")
 for line in file:
      line=line.strip()
      lin_no=lin_no+1
@@ -13,30 +13,37 @@ for line in file:
           ans.append(line)
      else:
           question.append(line)
-print(question ,ans)
+#print(question ,ans)
 n=len(question) #n=length of questions or answers
-for i in range(n):
-     print(i+1,question[i],ans[i])
+#for i in range(n):
+ #    print(i+1,question[i],ans[i])
 
 
 # print(file.readline())
 
 random_question=0
+new_score=0
+
 
 def update_label():
      label.config(text=question[random_question])
+
+def update_score():
+     score.config(text=f"SCORE : {new_score}")
 # Function for  button display
 def my_function(element,mass,name,number):
-     global random_question
+     global random_question,new_score
      new_window = tk.Toplevel(main_window)
      tk.Label(new_window, text=f"Element: {element} \n ATOMIC MASS : {mass} \n Element Name: {name} \n ATOMIC NUMBER :{number}").pack()
      
      if number==int(ans[random_question]):
           print("Correct Answer")
+          new_score+=1
      else:
           print("INCORRECT ANSWER")
      random_question=random.randint(0,n-1)
      update_label()
+     update_score()
     
 main_window = tk.Tk()
 main_window.title("Periodic Table")
@@ -53,7 +60,7 @@ Post_Transition_metals=[13,31,49,50,81,82,83,84,85]
 Lanthanide=[57,58,59,60,61,62,63,64,65,66,67,68,69,70,71]
 Actinides=[89,90,91,92,93,94,95,96,97,98,99,100,101,102,103]
 
-
+#COLOUR ELEMENTS
 def get_color(atomic_number):
      if  atomic_number in alkali_metals:
           return "#24bddb"
@@ -151,8 +158,10 @@ atoms=[2,10,18,36,54,86,118]
 for row_no in range(len(atoms)):
      buttons[atoms[row_no]-1].grid(row=row_no, column=18   )  
 
-
 label=tk.Label(main_window,text=question[random_question],bg="black",fg="white",font=("Times roman", 12) )
 label.grid(row=200,column=1,columnspan=18,padx=10,pady=10)
+
+score=tk.Label(main_window,text="SCORE :",bg="black",fg="white",font=("Times roman",12))
+score.grid(row=11,column=0,columnspan=18,pady=10)#SCORING LABEL
 
 main_window.mainloop()
