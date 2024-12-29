@@ -27,7 +27,8 @@ n=len(list_of_questions) #n=length of list_of_questionss or list_of_answers
 # Create the main window
 main_window = tk.Tk()
 main_window.title("PERIODIC-TABLE")
-main_window.geometry("800x600") 
+main_window.geometry("800x600")
+main_window.state("zoomed")
 
 # Load the background image
 image_path = "image.jpg"  
@@ -41,67 +42,89 @@ bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 quiz_window=tk.Toplevel(main_window)
 quiz_window.title("QUIZ WINDOW")
-quiz_window.geometry("250x250")
-#quiz_window.withdraw()
+#quiz_window.geometry("250x250")
+quiz_window.state("zoomed")
+quiz_window.withdraw()
 
 opt_A=0
 opt_B=0
 opt_C=0
 opt_D=0
 ans=0
-quest_label=tk.Label(quiz_window,text="Q: ",font=("Arial", 22), fg="blue").pack(pady=20)
+quest_label=tk.Label(quiz_window,text="Q: ",font=("Arial", 22), fg="blue")
+quest_label.pack(pady=20)
 a=tk.Button( \
                 quiz_window, \
                 text=f"A:", \
                 font=("Arial",12), \
                 fg="black", \
                 command=lambda:option_click(opt_A,quiz_window,ans) \
-            ).pack(pady=20)
+            )
+a.pack(pady=20)
 b=tk.Button( \
                 quiz_window, \
                 text=f"B:", \
                 font=("Arial",12), \
                 fg="black", \
                 command=lambda:option_click(opt_B,quiz_window,ans) \
-                ).pack(pady=20)
+                )
+b.pack(pady=20)
 c=tk.Button( \
                 quiz_window, \
                 text=f"C:", \
                 font=("Arial",12),fg="black", \
                 command=lambda:option_click(opt_C,quiz_window,ans) \
-            ).pack(pady=20)
+            )
+c.pack(pady=20)
 d=tk.Button( \
                 quiz_window, \
                 text=f"D:", \
                 font=("Arial",12),fg="black", \
                 command=lambda:option_click(opt_D,quiz_window,ans) \
-            ).pack(pady=20)
-    
+            )
+d.pack(pady=20)
 
+question_num=0
 def display_quiz():
-    quiz_window.deiconify()
-    random_index=random.randint(0,n-1)
-    quest=list_of_questions[random_index]
-    ans=list_of_ans[random_index]
-    opt1=random.randint(1,118)
-    opt2=random.randint(1,118)
-    opt3=random.randint(1,118)
-    list_of_opt=[int(ans),opt1,opt2,opt3]
-    random.shuffle(list_of_opt) # for MCQS OPTIONS
-   #quest_label= tk.Label(quiz_window,text="Q: "+quest,font=("Arial", 22), fg="blue").pack(pady=20)
-    quest_label.config(text="Q:"+quest)
-    a.config(text=f"A:{elements[list_of_opt[0]].name}")
-    b.config(text=f"B:{elements[list_of_opt[1]].name}")
-    c.config(text=f"C:{elements[list_of_opt[2]].name}")
-    d.config(text=f"D:{elements[list_of_opt[3]].name}")
-    quiz_window.update()
+    global opt_A,opt_B,opt_C,opt_D,ans,question_num
+    question_num+=1
+    if question_num<=10:
+        quiz_window.deiconify()
+        random_index=random.randint(0,n-1)
+        quest=list_of_questions[random_index]
+        ans=list_of_ans[random_index]
+        opt1=random.randint(1,118)
+        opt2=random.randint(1,118)
+        opt3=random.randint(1,118)
+        list_of_opt=[int(ans),opt1,opt2,opt3]
+        random.shuffle(list_of_opt) # for MCQS OPTIONS
+        opt_A=list_of_opt[0]
+        opt_B=list_of_opt[1]
+        opt_C=list_of_opt[2]
+        opt_D=list_of_opt[3]
+        quest_label.config(text="Q:"+quest)
+        a.config(text=f"A:{elements[list_of_opt[0]].name}")
+        b.config(text=f"B:{elements[list_of_opt[1]].name}")
+        c.config(text=f"C:{elements[list_of_opt[2]].name}")
+        d.config(text=f"D:{elements[list_of_opt[3]].name}")
+        quiz_window.update()
+    else:
+        question_num=0
+        quiz_window.withdraw()
+
+correct_label=tk.Label(quiz_window,text="Correct",font=("Arial", 10), fg="blue")
+correct_label.place_forget()
 
 def option_click(chk,quiz_window,ans):
         if chk == int(ans):
-            tk.Label(quiz_window,text="Correct",font=("Arial", 10), fg="blue").place(x=600,y=200)
+            correct_label.config(text="CORRECT",fg="green")
         else:
-            tk.Label(quiz_window, text="Incorrect",font=("Arial", 10), fg="black").place(x=600,y=400)
-        time.sleep(2)
+            correct_label.config(text="INCORRECT",fg="red")
+        correct_label.place(x=600,y=400)
+        quiz_window.update()
+        time.sleep(1)
+        correct_label.place_forget()
+        quiz_window.update()
         display_quiz()
 
 
