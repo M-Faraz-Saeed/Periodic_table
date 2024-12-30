@@ -106,10 +106,10 @@ def display_quiz():
         opt_C=list_of_opt[2]
         opt_D=list_of_opt[3]
         quest_label.config(text="Q:"+quest)
-        a.config(text=f"A:{elements[list_of_opt[0]].name} ({elements[list_of_opt[0]].number})")
-        b.config(text=f"B:{elements[list_of_opt[1]].name}({elements[list_of_opt[1]].number})")
-        c.config(text=f"C:{elements[list_of_opt[2]].name}({elements[list_of_opt[2]].number})")
-        d.config(text=f"D:{elements[list_of_opt[3]].name}({elements[list_of_opt[3]].number})")
+        a.config(text=f"A:{elements[list_of_opt[0]].name.capitalize()} (Z={elements[list_of_opt[0]].number})")
+        b.config(text=f"B:{elements[list_of_opt[1]].name.capitalize()}(Z={elements[list_of_opt[1]].number})")
+        c.config(text=f"C:{elements[list_of_opt[2]].name.capitalize()}(Z={elements[list_of_opt[2]].number})")
+        d.config(text=f"D:{elements[list_of_opt[3]].name.capitalize()}(Z={elements[list_of_opt[3]].number})")
         quiz_window.update()
     else:
         question_num=0
