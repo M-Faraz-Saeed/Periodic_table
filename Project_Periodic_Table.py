@@ -58,7 +58,7 @@ a=tk.Button( \
                 font=("Arial",14), \
                 fg="black", \
                 bg="pink", \
-                command=lambda:option_click(opt_A,quiz_window,ans) \
+                command=lambda:option_click(opt_A) \
             )
 a.place(x=300,y=300*0.8)
 b=tk.Button( \
@@ -67,7 +67,7 @@ b=tk.Button( \
                 font=("Arial",14), \
                 fg="black", \
                 bg="pink", \
-                command=lambda:option_click(opt_B,quiz_window,ans) \
+                command=lambda:option_click(opt_B) \
                 )
 b.place(x=300,y=350*0.8)
 c=tk.Button( \
@@ -75,7 +75,7 @@ c=tk.Button( \
                 text=f"C:", \
                 font=("Arial",14),fg="black", \
                 bg="pink", \
-                command=lambda:option_click(opt_C,quiz_window,ans) \
+                command=lambda:option_click(opt_C) \
             )
 c.place(x=300,y=400*0.8)
 d=tk.Button( \
@@ -83,7 +83,7 @@ d=tk.Button( \
                 text=f"D:", \
                 font=("Arial",14),fg="black", \
                 bg="pink", \
-                command=lambda:option_click(opt_D,quiz_window,ans) \
+                command=lambda:option_click(opt_D) \
             )
 d.place(x=300,y=450*0.8)
 score=0
@@ -106,10 +106,10 @@ def display_quiz():
         opt_C=list_of_opt[2]
         opt_D=list_of_opt[3]
         quest_label.config(text="Q:"+quest)
-        a.config(text=f"A:{elements[list_of_opt[0]].name}")
-        b.config(text=f"B:{elements[list_of_opt[1]].name}")
-        c.config(text=f"C:{elements[list_of_opt[2]].name}")
-        d.config(text=f"D:{elements[list_of_opt[3]].name}")
+        a.config(text=f"A:{elements[list_of_opt[0]].name} ({elements[list_of_opt[0]].number})")
+        b.config(text=f"B:{elements[list_of_opt[1]].name}({elements[list_of_opt[1]].number})")
+        c.config(text=f"C:{elements[list_of_opt[2]].name}({elements[list_of_opt[2]].number})")
+        d.config(text=f"D:{elements[list_of_opt[3]].name}({elements[list_of_opt[3]].number})")
         quiz_window.update()
     else:
         question_num=0
@@ -118,16 +118,16 @@ def display_quiz():
 correct_label=tk.Label(quiz_window,text="",font=("Arial", 18))
 correct_label.place_forget()
 
-def option_click(chk,quiz_window,ans):
-        global score
+def option_click(chk):
+        global score,ans,quiz_window
         if chk == int(ans):
             correct_label.config(text="CORRECT",fg="green")
             score+=1
-            score_label=tk.Label(quiz_window,text=f"SCORE :{score}",font=("bold",15),bg="lightgreen")
+            score_label=tk.Label(quiz_window,text=f"SCORE :{score}",font=("bold",13),bg="lightgreen")
             score_label.place(x=800,y=200)
         else:
             correct_label.config(text="INCORRECT",fg="red")
-        correct_label.place(x=600,y=400)
+        correct_label.place(x=500,y=300)
         quiz_window.update()
         time.sleep(0.5)#to display for 0.5 seconds
         correct_label.place_forget()
@@ -228,5 +228,5 @@ for line in file:
             bg=get_color(atm_num), \
             fg="black",width=5,height=2, \
             command=lambda name=i.name,number=i.number,elem=i.symbol,ma=i.mass:element_details(elem,ma,name,number))
-    button.place(x=int(x*0.8)+255,y=int(y*0.6)+155)
+    button.place(x=int(x*0.9)+255,y=int(y*0.7)+155)
 main_window.mainloop()
