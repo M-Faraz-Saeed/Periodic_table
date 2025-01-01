@@ -45,6 +45,7 @@ quiz_window.withdraw()
 bg_quiz = tk.Label(quiz_window, image=bg_photo)
 bg_quiz.place(x=0, y=0, relwidth=1, relheight=1)
 
+
 opt_A=0
 opt_B=0
 opt_C=0
@@ -58,6 +59,7 @@ a=tk.Button( \
                 font=("Arial",14), \
                 fg="black", \
                 bg="pink", \
+                width=17,\
                 command=lambda:option_click(opt_A) \
             )
 a.place(x=300,y=300*0.8)
@@ -67,6 +69,7 @@ b=tk.Button( \
                 font=("Arial",14), \
                 fg="black", \
                 bg="pink", \
+                width=17,\
                 command=lambda:option_click(opt_B) \
                 )
 b.place(x=300,y=350*0.8)
@@ -75,6 +78,7 @@ c=tk.Button( \
                 text=f"C:", \
                 font=("Arial",14),fg="black", \
                 bg="pink", \
+                width=17, \
                 command=lambda:option_click(opt_C) \
             )
 c.place(x=300,y=400*0.8)
@@ -83,6 +87,7 @@ d=tk.Button( \
                 text=f"D:", \
                 font=("Arial",14),fg="black", \
                 bg="pink", \
+                width=17,\
                 command=lambda:option_click(opt_D) \
             )
 d.place(x=300,y=450*0.8)
@@ -123,11 +128,11 @@ def option_click(chk):
         if chk == int(ans):
             correct_label.config(text="CORRECT",fg="green")
             score+=1
-            score_label=tk.Label(quiz_window,text=f"SCORE :{score}",font=("bold",13),bg="lightgreen")
+            score_label=tk.Label(quiz_window,text=f"SCORE :{score}",font=("bold",15),bg="lightgreen")
             score_label.place(x=800,y=200)
         else:
             correct_label.config(text="INCORRECT",fg="red")
-        correct_label.place(x=500,y=300)
+        correct_label.place(x=525,y=300)
         quiz_window.update()
         time.sleep(0.5)#to display for 0.5 seconds
         correct_label.place_forget()
@@ -140,8 +145,7 @@ quiz_button.place(x=1100,y=50)
 heading=tk.Label(main_window,text="PERIODIC-TABLE",font=("bold",30),bg="lightgreen")
 heading.place(x=490,y=60)
 
-
-score_label=tk.Label(quiz_window,text=f"SCORE :",font=("bold",16),bg="lightgreen")
+score_label=tk.Label(quiz_window,text=f"SCORE :0",font=("bold",15),bg="lightgreen")
 score_label.place(x=800,y=200)
 
 alkali_metals=tk.Label(main_window,text="ALKALI-METALS",font=("bold",14),bg="#FF6347")
@@ -215,13 +219,6 @@ for line in file:
     i =elements[atm_num]
     x=int(list[4])
     y=int(list[5])
-    if len(list)==7:
-        if list[6]=="-":
-            en=0
-        else:
-            en=float(list[6])
-    else:
-        en=0
     button = tk.Button( \
             main_window, \
             text=list[1], \
